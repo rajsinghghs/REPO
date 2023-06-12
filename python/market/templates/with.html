@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block title %}
+ withdrawls
+{% endblock %} 
+{% block content %}
+<nav class="navbar" style="background-color: blanchedalmond;">
+    {% for child in children %}
+    <div class="container" style="color: blueviolet;">
+    Withdrawl -{{child.withdraw}}
+    </div>
+    {% endfor %}
+</nav>
+{% endblock %}
+{% include 'includes/icon.html' %}

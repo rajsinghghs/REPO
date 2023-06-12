@@ -1,0 +1,41 @@
+{% extends 'base.html' %} 
+{% block title %}
+  Login Page
+{% endblock %}  
+{% block content %} 
+<style>
+    body{
+        background-color: rgb(171, 131, 189);
+    }
+.metal img {
+     object-fit: cover;
+     height: 100%;
+     width: 100%;
+  }
+</style>
+<body class="text-center">
+  <div class="navbar" style="justify-content: center; text-align: center;">
+    <h5>Login</h5>
+  </div>
+        <div class="metal" style="border: 5px; border-color: black; color: black;  width: 98vw; height: 30vh; background-color: black; margin-right:1; margin-left: 1%;">
+            <img src="https://i0.wp.com/logotaglines.com/wp-content/uploads/2017/07/tata-motors-logo.jpg?fit=900%2C666&ssl=1" alt="network error">
+        <form method="POST" class="form-signin" style="color: black;">
+        {{ form.hidden_tag() }}
+        {{ form.username.label() }}
+        {{ form.username(class="form-control", placeholder="Username") }}
+        
+        {{ form.password.label() }}
+        {{ form.password(class="form-control", placeholder="Password") }}
+        
+        <br>
+
+        <div class="checkbox mb-3">
+            <h6 style="color: black;">Don't have an account?</h6>
+            <a class="btn btn-sm btn-secondary" href="{{ url_for('register_page') }}">Register</a>
+        </div>
+        {{ form.submit(class="btn btn-lg btn-block btn-primary") }}
+
+        </form>
+      </div>
+</body> 
+{% endblock %}

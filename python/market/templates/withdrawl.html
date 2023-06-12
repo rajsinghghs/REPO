@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% block title %}
+  Withdrawal Page 
+{% endblock %} 
+{% block content %}
+
+     
+   <div class="container" style="background-color: rgb(171, 131, 189);">
+     <form method="post" class="form-withdrawl">
+        {{ form.hidden_tag() }}
+        {{ form.withdraw.label() }}
+        {{ form.withdraw(class="form-control", placeholder="Enter amount") }}
+        {{ form.ac_name.label() }}
+        {{ form.ac_name(class="form-control", placeholder="Bank name") }}
+        {{ form.ac_number.label() }}
+        {{ form.ac_number(class="form-control", placeholder="Account number") }}
+        {{ form.ac_ifsc.label() }}
+        {{ form.ac_ifsc(class="form-control", placeholder="Ifsc code") }}
+        <br>
+        {{ form.submit(class="btn btn-lg btn-block btn-primary") }}
+        {{ last_ac }}
+        
+     </form>
+ {{ attempted_withdrawl }}
+   </div>  
+
+   <div class="container" style="background-color: rgb(171, 131, 189); margin-top: 10px; color: rgb(119, 70, 70);">
+    <span>*Minimun withdrawal amount is: 130</span>
+    <br>
+    <br>
+    <span>*Withdrawal time: 09:00-18:00(daily Withdrawal)</span>
+    <br>
+    <br>
+    <span>*Arrival time:15 mintues-24 hours (subject to bank transfer time)</span>
+    <br>
+   </div>
+
+{% endblock %}
+{% include 'includes/icon.html' %}

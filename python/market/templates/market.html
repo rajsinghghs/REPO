@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+{% block title %} 
+   Market page
+
+{% endblock %}
+{% block content %}
+  
+      {% include 'includes/ico.html' %}
+      {% for item in items %} 
+      {% include 'includes/items_modals.html' %}
+      
+      <style>
+         body{
+            background-color: rgb(171, 131, 189);
+           
+         }
+         .container {
+          
+            
+            display: flex;
+            box-sizing: border-box;
+            
+         }
+         .metal img {
+            object-fit: cover;
+            height: 100%;
+            width: 100%;
+         }
+
+      </style>
+              
+          <div class="metal" style="border: 5px; border-color: black; color: black;  width: 97.5vw; height: 50vh; background-color: black; margin-bottom: 125px; margin-left: 1%; margin-right: 1%;">
+       
+            <img src="https://i0.wp.com/logotaglines.com/wp-content/uploads/2017/07/tata-motors-logo.jpg?fit=900%2C666&ssl=1" alt="network error">
+              
+            <br>
+            <span>Trading price:         ₹{{ item.price }} </span>  
+            <br>
+            <span>Daily income:         ₹{{ item.income }}</span>  
+            <br> 
+            <span>Total income:         ₹{{ item.total_income }}</span>   
+            <br>
+            <span>Complete cycle: {{ item.cycle }} Days</span>   
+            <br>
+            <button class="btn btn-outline btn-info" data-bs-toggle="modal" data-bs-target="#Modal-MoreInfo-{{ item.price }}">More Info</button>
+            <button class="btn btn-outline btn-success" data-bs-toggle="modal" data-bs-target="#Modal-Purchase-{{ item.price }}">Purchase</button>
+           
+         </div>
+         <br>
+         {% endfor %}
+   
+{% endblock %} 
+{% include 'includes/icon.html' %}

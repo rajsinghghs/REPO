@@ -1,0 +1,67 @@
+{% extends 'base.html' %} 
+{% block title %} 
+   My account
+
+{% endblock %}
+{% block content %}
+<style>
+   .fit-image{
+      width: 100px;
+      height: 100px;
+   }
+</style>
+
+<div class="box" style="height: 100px; width: 100px; align-self: center;">
+   <img src="https://i0.wp.com/logotaglines.com/wp-content/uploads/2017/07/tata-motors-logo.jpg?fit=900%2C666&ssl=1" class="fit-image" alt="network error">
+</div>
+<div class="box1" style="align-self: center;"> <p><h5>ID : {{current_user.username}}</h5></p></div>
+<div class="div1" style="background-color: rgb(171, 131, 189);">
+<nav class="navbar" style="margin-left: 2%; margin-right: 2%;">
+   <span>Balance </span>
+   <span>Recharge</span>
+   <span>Income</span>
+</nav>
+<nav class="navbar" style="margin-left: 2%; margin-right: 2%;">
+   <span>{{ current_user.budget }} </span>
+   <span>{{ current_user.recharge_amount }}</span>
+   <span>0</span>
+</nav>
+</div>
+<div class="2" style="margin-top: 35px; margin-left: 50px;">
+   <nav class="navbar" style="margin-left: 2%; margin-right: 2%;">
+      <a href="{{ url_for('record')}}" class="nav-link">
+      <span><img src="https://cdn-icons-png.flaticon.com/128/3281/3281329.png" alt="network eroor" width="65px">  
+         <nav class="child">
+            <span><h5>My product</h5></span>
+         </nav>
+      </span>
+      </a>
+      <a href="{{ url_for('account')}}" class="nav-link">
+      <span><img src="https://cdn-icons-png.flaticon.com/128/2666/2666436.png" alt="network error" width="65px"> 
+         <nav class="child">
+            <span><h5>Account record</h5></span>
+         </nav>
+      </span>
+      </a>
+   </nav>
+</div>
+<div class="3" style="margin-top: 35px; margin-left: 50px;" >
+   <nav class="navbar" style="margin-left: 2%;">
+      <a href="{{ url_for('company')}}" class="nav-link">
+      <span><img src="https://cdn-icons-png.flaticon.com/128/9252/9252493.png" alt="network error" width="65px"> 
+         <nav class="child">
+            <span><h5>Company</h5></span>
+         </nav>
+      </span>
+      </a>
+      <a href="{{ url_for('personal')}}" class="nav-link">
+      <span><img src="https://cdn-icons-png.flaticon.com/128/1726/1726637.png" alt="network eroor" width="65px">  
+         <nav class="child">
+            <span ><h5>Personal  infos</h5></span>
+         </nav>
+      </span>
+      </a>
+   </nav>
+</div>
+{% endblock %}
+{% include 'includes/icon.html' %}

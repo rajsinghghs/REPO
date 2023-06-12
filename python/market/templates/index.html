@@ -1,0 +1,82 @@
+{% extends 'base.html' %}
+{% block title %}
+  Register Page
+{% endblock %} 
+
+{% block content %} 
+<style>
+  body{
+     background-color: rgb(171, 131, 189);
+     margin-right: 0%;
+     height: 100vh;
+     width: 100vw;
+  }
+  .metal img {
+     object-fit: cover;
+     height: 100%;
+     width: 100%;
+  }
+  .nav2{
+    margin-bottom: 0;
+    width: 100%;
+    height: 50px;
+    box-shadow: 0 0 3px rgba(0,0,0,0.2);
+    background-color: #ffffff;
+    overflow-x: auto;
+    display: flex;
+}
+.nav-link2{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex-grow: 1;
+    background-color: white;
+    min-width: 100px;
+    overflow: hidden;
+    white-space: nowrap;
+    font-size: 20px;
+    color: rgb(171, 131, 189);
+    text-decoration: none;
+    -webkit-tap-highlight-color: transparent;
+    transition: background-color 0.1s ease-in-out;
+}
+</style>
+<nav class="nav2">
+  <a href="#" class="nav-link2">
+      <span class="material-symbols-outlined">
+          Register
+          </span>
+  </a>      
+</nav>
+
+ <div class="metal" style="border: 5px; border-color: black; color: black;  width: 98vw; height: 30vh; background-color: white; margin-right:1; margin-left: 1%;">
+
+  
+  <img src="https://i0.wp.com/logotaglines.com/wp-content/uploads/2017/07/tata-motors-logo.jpg?fit=900%2C666&ssl=1" alt="network error">
+       <form method="POST" class="form-register" action="/register" style="color: rgb(7, 2, 2);">
+       {{ form.hidden_tag()}}
+       {{ form.username.label() }}
+       {{ form.username(class="form-control", placeholder="User Name") }}
+
+       {{ form.email_address.label() }}
+       {{ form.email_address(class="form-control", placeholder="Email Address") }}
+
+       {{ form.password1.label() }}
+       {{ form.password1(class="form-control", placeholder="Password") }}
+
+       {{ form.password2.label() }}
+       {{ form.password2(class="form-control", placeholder="Confirm Password")}}
+
+       {{ form.referral_code.label() }} 
+       {{ form.referral_code(class="form-control", value=request.args.get('referral_code')) }} <br>
+       
+       <div class="checkbox mb-3">
+        <h6>Already have an account?</h6>
+        <a class="btn btn-sm btn-secondary" href="{{ url_for('login_page') }}">Login</a> <br>
+      {{ form.submit(class="btn btn-lg btn-block btn-primary") }}
+        </div>
+       </form>
+    </div>
+        
+{% endblock %} 

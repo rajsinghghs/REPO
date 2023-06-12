@@ -1,0 +1,85 @@
+{% extends 'base.html' %} 
+{% block title %}
+referrals page 
+{% endblock %}
+{% block content %}
+<div class="container" style="width: 100vw; height: 100vh; background-color: rgb(171, 131, 189); margin-left: 0; margin-right: 0;">
+    <style>
+       .container {
+          margin-right: 0%;
+       }
+       .h4{
+        justify-content: center;
+       }
+    </style> 
+    <h4 style=" justify-content: center; text-align: center;">Invite friends</h4> 
+    <br>
+    
+ 
+    <div class="box" style="background-color: aliceblue;">
+    <h5 style="justify-content: center; text-align: center;">Referral link </h5> 
+    <p id="content">
+      {{ referral_link }}</p>
+    <button onclick="copyToClipboard()">Copy</button>
+
+    <script>
+        function copyToClipboard() {
+            const content = document.getElementById('content').innerText;
+            navigator.clipboard.writeText(content)
+                .then(() => {
+                    alert('Copied to clipboard!');
+                })
+                .catch((error) => {
+                    console.error('Failed to copy:', error);
+                });
+        }
+    </script>
+    </div>
+    <br>
+    <div class="box" style="background-color: aliceblue;">
+    <h5 style="justify-content: center; text-align: center;">Refer code</h5>
+    <p id="content">{{ current_user.referral_code }}</p>
+    <button onclick="copyToClipboard()">Copy</button>
+
+    <script>
+        function copyToClipboard() {
+            const content = document.getElementById('content').innerText;
+            navigator.clipboard.writeText(content)
+                .then(() => {
+                    alert('Copied to clipboard!');
+                })
+                .catch((error) => {
+                    console.error('Failed to copy:', error);
+                });
+        }
+    </script>
+    </div>
+    <br>
+    <div class="box" style="background-color: aliceblue;">
+      <h5 style="justify-content: center; text-align: center;">Tata Invitation Bonus</h5>
+    <table class="table table-hover table-daek"> 
+      <thead>
+         <tr>
+            <th scope="col">Level</th>
+            <th scope="col">Income</th>
+         </tr>
+      </thead>
+      <tbody>
+         <tr>
+         <td>Level 1</td>
+         <td>20%</td>
+         </tr>
+         <tr>
+            <td>Level 2</td>
+            <td>3%</td>
+         </tr>
+         <tr>
+            <td>Level 3</td>
+            <td>2%</td>
+         </tr>
+      </tbody>
+      </table>
+    </div>
+</div> 
+{% endblock %} 
+{% include 'includes/icon.html' %}

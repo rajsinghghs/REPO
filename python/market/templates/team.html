@@ -1,0 +1,34 @@
+{% extends 'base.html' %} 
+{% block title %} 
+   Team page
+
+{% endblock %}
+{% block content %}
+<style>
+   body{
+      background-color: rgb(171, 131, 189);
+   }
+</style>
+<table class="table table-hover table-daek"> 
+    <thead>
+       <tr>
+          <th scope="col">Name</th>
+          <th scope="col">Recharge</th>
+          <th scope="col">Register time</th>
+          <th scope="col">Your income</th>
+       </tr>
+    </thead>
+    <tbody>
+       {% for friend in frineds %} 
+       <tr>
+       <td>{{ friend.username }}</td>
+       <td>{{ friend.recharge_amount }}</td>
+       <td>{{ friend.register_time }}</td>
+       <td>{{ friend.referred_bonus }}</td>
+       </tr>
+       {% endfor %}
+    </tbody>
+{{ total_referincome }} 
+
+{% endblock %}
+{% include 'includes/icon.html' %}
